@@ -111,12 +111,13 @@ void imprime_Fila(Fila* fi){
 
 
 Fila* copialibera_Fila(Fila* fi){
-    struct aluno  al;
-    Fila *fiCopia = (Fila*) malloc(sizeof(Fila));
+    struct aluno *al;
+    Fila *fiCopia=cria_Fila();
 
-    while ((consulta_Fila(fi,&al))==1)
+    while ((consulta_Fila(fi, al))==1)
     {
-        insere_Fila(fiCopia,al);
+        
+        insere_Fila(fiCopia,*al);
         remove_Fila(fi);
 
     }
