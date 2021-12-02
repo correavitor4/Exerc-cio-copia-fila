@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "FilaDin.h" //inclui os Protótipos
-//Definição do tipo Fila
+#include "FilaDin.h" //inclui os Protï¿½tipos
+//Definiï¿½ï¿½o do tipo Fila
 struct elemento{
     struct aluno dados;
     struct elemento *prox;
 };
 typedef struct elemento Elem;
-//Definição do Nó Descritor da Fila
+//Definiï¿½ï¿½o do Nï¿½ Descritor da Fila
 struct fila{
     struct elemento *inicio;
     struct elemento *final;
@@ -111,9 +111,18 @@ void imprime_Fila(Fila* fi){
 
 
 Fila* copialibera_Fila(Fila* fi){
+    struct aluno  al;
+    Fila *fiCopia = (Fila*) malloc(sizeof(Fila));
 
-//sua implementacao aqui
-return NULL;
+    while ((consulta_Fila(fi,&al))==1)
+    {
+        insere_Fila(fiCopia,al);
+        remove_Fila(fi);
+
+    }
+    libera_Fila(fi);
+    
+    return fiCopia;
 }
 
 
