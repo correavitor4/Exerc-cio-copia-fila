@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "FilaEstatica.h" //inclui os Protótipos
+#include "FilaEstatica.h" //inclui os Protï¿½tipos
 
-//Definição do tipo Fila
+//Definiï¿½ï¿½o do tipo Fila
 struct fila{
     int inicio, final;
     struct aluno dados[MAX];
@@ -84,8 +84,19 @@ void imprime_Fila(Fila* fi){
     }
 }
 Fila* copialibera_Fila(Fila* fi){
-//sua implementacao aqui
-return NULL;
+struct aluno *al;
+    Fila *fiCopia=cria_Fila();
+
+    while ((consulta_Fila(fi, al))==1)
+    {
+        
+        insere_Fila(fiCopia,*al);
+        remove_Fila(fi);
+
+    }
+    libera_Fila(fi);
+    
+    return fiCopia;
 }
 
 int inverte_Fila(Fila* fi){
